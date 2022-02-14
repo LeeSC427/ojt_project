@@ -48,7 +48,7 @@ namespace allen
         }
         sensor(void){}
         void init_Subscriber();
-        void rgb_callback(const sensor_msgs::Image::ConstPtr &msg, allen::Image &_src);
+        void rgb_callback(const sensor_msgs::Image::ConstPtr &msg, allen::Image *_src);
 
     };
 }
