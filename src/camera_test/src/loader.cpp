@@ -1,11 +1,3 @@
-// #include <ros/ros.h>
-// #include <opencv2/opencv.hpp>
-// #include <iostream>
-// #include "sensor_msgs/CompressedImage.h"
-
-// //#include <image_transport/image_transport.h>
-// //#include <opencv2/highgui/highgui.hpp>
-// #include <cv_bridge/cv_bridge.h>
 #include "camera.hpp"
 
 ros::Subscriber get_file_std;

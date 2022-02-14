@@ -11,3 +11,4 @@
 #include <sstream>
 #include <unistd.h>
 #include <image_transport/image_transport.h>
+#include <stdio.h>
