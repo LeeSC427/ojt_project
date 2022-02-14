@@ -17,12 +17,12 @@ void allen::sensor::init_Subscriber()
 {
     try
     {
-        ROS_WARN("params: /topic_gaussian, %s", this->params.get_str("/topic_gaussian").c_str());
-        ROS_WARN("params: /topic_resized, %s", this->params.get_str("/topic_resized").c_str());
-        this->c920.rgb_gaussian_sub_ = this->nh_.subscribe<sensor_msgs::Image>("/camera/rgb/image_gaussian_raw", 10, 
-                                    boost::bind(&sensor::rgb_callback, this, _1, this->c920.img_gaussian));
-        this->c920.rgb_resized_sub_ = this->nh_.subscribe<sensor_msgs::Image>("/camera/rgb/image_resized_raw", 10, 
-                                    boost::bind(&sensor::rgb_callback, this, _1, this->c920.img_resized));
+        ROS_WARN("params: /topic_gaussian, %s-> advertising..", this->params.get_str("/topic_gaussian").c_str());
+        ROS_WARN("params: /topic_resized, %s-> advertising..", this->params.get_str("/topic_resized").c_str());
+        this->c920.rgb_gaussian_sub_ = this->nh_.subscribe<sensor_msgs::Image>(this->params.get_str("/topic_gaussian"), 
+                                    10, boost::bind(&sensor::rgb_callback, this, _1, this->c920.img_gaussian));
+        this->c920.rgb_resized_sub_ = this->nh_.subscribe<sensor_msgs::Image>(this->params.get_str("/topic_resized"), 
+                                    10, boost::bind(&sensor::rgb_callback, this, _1, this->c920.img_resized));
     }
     catch(ros::InvalidNameException e)
     {
