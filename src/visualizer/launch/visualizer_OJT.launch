@@ -1,4 +1,11 @@
 <launch>
+	<node name="video_cap" pkg="merge" type="merge_node" />
+
+	<node name="Gaussian" pkg="Gaussian" type="Gaussian_node" />
+
+	<node name="resize" pkg="resize" type="resize_node">
+		<param name="topic_name"	type="string"	value="/image_data" />
+	</node>
 
 	<node name="visualizer" pkg="visualizer" type="visualizer_node" output="screen"> 
 		<param name="topic_gaussian" type="string" value="/camera/rgb/image_gaussian_raw"/>

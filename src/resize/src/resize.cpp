@@ -4,12 +4,12 @@ int main(int argc, char **argv)
 {
     ros::init(argc, argv, "resize");
 
-    std::string topic_name = "/topic_gaussian";
+    std::string topic_name = "/image_data";
 
     ros::NodeHandle nh;
     ros::NodeHandle n_private("~");
 
-    n_private.param<std::string>("/topic_gaussian", topic_name, "/topic_gaussian");
+    n_private.param<std::string>("/image_data", topic_name, "/image_data");
 
     Resize resize;
 

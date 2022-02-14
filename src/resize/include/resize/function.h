@@ -29,16 +29,20 @@ class Resize
 
             img_msg = cv_bridge::CvImage(head, format, resize_img).toImageMsg();
 
+            img_msg->height = resize_img.rows;
+            img_msg->width  = resize_img.cols;
+
+
             img_pub.publish(img_msg);
             
-            cv::imshow("resized", resize_img);            
+            // cv::imshow("resized", resize_img);            
 
-            cv::waitKey(1);
+            // cv::waitKey(1);
         }
 
     Resize()
     {
-        img_pub = n.advertise<sensor_msgs::Image>("topic_resized", 10);
+        img_pub = n.advertise<sensor_msgs::Image>("/camera/rgb/image_resized_raw", 10);
         format = "bgr8";
     }
     ~Resize()

@@ -14,6 +14,10 @@ void allen::visualizer::plot(void)
     if(plot_resized.empty())                                return;
     if(plot_gaussian.cols < 0 || plot_resized.cols < 0)     return;
 
+    // std::cout << plot_gaussian << std::endl;
+
+    // std::cout << plot_resized << std::endl;
+    
     cv::imshow(this->sensors->c920.img_gaussian.win_name, plot_gaussian);
     cv::imshow(this->sensors->c920.img_resized.win_name, plot_resized);
     cv::waitKey(1);
